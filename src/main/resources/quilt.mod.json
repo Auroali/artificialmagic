@@ -1,0 +1,47 @@
+{
+	"schema_version": 1,
+	"quilt_loader": {
+		"group": "com.auroali",
+		"id": "artificialmagic",
+		"version": "${version}",
+		"metadata": {
+			"name": "Artificial Magic",
+			"description": "WIP Magic Mod",
+			"license": "MIT",
+			"contributors": {
+				"Auroali": "Owner"
+			},
+			"contact": {
+				"homepage": "https://auroali.com/",
+				"issues": "https://github.com/QuiltMC/quilt-template-mod/issues",
+				"sources": "https://github.com/QuiltMC/quilt-template-mod"
+			},
+			"icon": "assets/example_mod/icon.png"
+		},
+		"intermediate_mappings": "net.fabricmc:intermediary",
+		"entrypoints": {
+			"init": "com.auroali.artificialmagic.ArtificialMagic",
+			"cardinal-components": [
+				"com.auroali.artificialmagic.components.EntityComponents"
+			]
+		},
+		"depends": [
+			{
+				"id": "quilt_loader",
+				"versions": ">=0.17.8-"
+			},
+			{
+				"id": "quilted_fabric_api",
+				"versions": ">=4.0.0-"
+			},
+			{
+				"id": "minecraft",
+				"versions": "=1.19.2"
+			}
+		]
+	},
+	"cardinal-components": [
+		"artificialmagic:mana"
+	],
+	"mixin": "artificalmagic.mixins.json"
+}
