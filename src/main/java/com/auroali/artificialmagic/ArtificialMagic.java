@@ -12,7 +12,6 @@ import net.minecraft.util.Identifier;
 import org.quiltmc.loader.api.ModContainer;
 import org.quiltmc.qsl.base.api.entrypoint.ModInitializer;
 import org.quiltmc.qsl.command.api.CommandRegistrationCallback;
-import org.quiltmc.qsl.lifecycle.api.event.ServerTickEvents;
 import org.quiltmc.qsl.lifecycle.api.event.ServerWorldTickEvents;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -40,7 +39,7 @@ public class ArtificialMagic implements ModInitializer {
 				}
 			)
 		);
-		CommandRegistrationCallback.EVENT.register((dispatcher, buildContext, environment) -> {
+		CommandRegistrationCallback.EVENT.register((dispatcher, buildContext, environment) ->
 			dispatcher.register(CommandManager.literal("mana")
 				.then(CommandManager.literal("refill").executes(ctx -> {
 					if (!ctx.getSource().m_bjpnvosg()) return -1;
@@ -55,8 +54,8 @@ public class ArtificialMagic implements ModInitializer {
 					AugmentedComponent.KEY.sync(ctx.getSource());
 					return 0;
 				}))
-			);
-		});
+			)
+		);
 	}
 
 	public static Identifier id(String name) {
