@@ -1,5 +1,7 @@
 package com.auroali.artificialmagic.common.items;
 
+import com.auroali.artificialmagic.common.components.entity.ManaComponent;
+import com.auroali.artificialmagic.common.mana.DrainType;
 import com.auroali.artificialmagic.common.registry.AFSounds;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -17,8 +19,12 @@ public class WandItem extends Item {
 
 	@Override
 	public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
-		if(!user.world.isClient)
-			world.playSound(null, user.getX(), user.getY(), user.getZ(), AFSounds.TUNING_FORK, SoundCategory.PLAYERS, 0.5f, 1f);
+		if(!user.world.isClient) {
+			if(ManaComponent.KEY.get(user).drainMana(0.05, DrainType.PERCENT, true)) {
+				world.playSound(null, user.getX(), user.getY(), user.getZ(), AFSounds.TUNING_FORK, SoundCategory.PLAYERS, 0.5f, 1f);
+				ManaComponent.KEY.get(user).drainMana(0.05, DrainType.PERCENT);
+			}
+		}
 		return super.use(world, user, hand);
 	}
 

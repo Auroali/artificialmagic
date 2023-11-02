@@ -1,4 +1,4 @@
-package com.auroali.artificialmagic.components.entity;
+package com.auroali.artificialmagic.common.components.entity;
 
 import com.auroali.artificialmagic.ArtificialMagic;
 import com.auroali.artificialmagic.common.mana.DrainType;
@@ -12,6 +12,7 @@ public interface ManaComponent extends Component {
 	default boolean drainMana(double amount, DrainType drainType) {
 		return this.drainMana(amount, drainType, false);
 	}
+	void fillMana(double amount, DrainType drainType);
 	/**
 	 * Get the max amount of mana that can be held
 	 * @return the max amount of mana that can be held, accounting for the usable capacity
@@ -32,4 +33,7 @@ public interface ManaComponent extends Component {
 	 * @return the percent usable capacity
 	 */
 	double getUsableCapacity();
+
+	boolean canUse();
+	void setCanUse(boolean canUse);
 }

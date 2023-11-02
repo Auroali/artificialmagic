@@ -21,8 +21,9 @@
 		"intermediate_mappings": "net.fabricmc:intermediary",
 		"entrypoints": {
 			"init": "com.auroali.artificialmagic.ArtificialMagic",
+			"client_init": "com.auroali.artificialmagic.client.ArtificialMagicClient",
 			"cardinal-components": [
-				"com.auroali.artificialmagic.components.EntityComponents"
+				"com.auroali.artificialmagic.common.components.EntityComponents"
 			]
 		},
 		"depends": [
@@ -41,7 +42,8 @@
 		]
 	},
 	"cardinal-components": [
-		"artificialmagic:mana"
+		"artificialmagic:mana",
+		"artificialmagic:augmentations"
 	],
 	"mixin": "artificalmagic.mixins.json"
 }
