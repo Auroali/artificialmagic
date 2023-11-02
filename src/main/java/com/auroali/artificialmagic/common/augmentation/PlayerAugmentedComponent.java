@@ -4,6 +4,7 @@ import com.auroali.artificialmagic.ArtificialMagic;
 import com.auroali.artificialmagic.common.components.entity.AugmentedComponent;
 import com.auroali.artificialmagic.common.registry.AFAugmentations;
 import dev.onyxstudios.cca.api.v3.component.sync.AutoSyncedComponent;
+import dev.onyxstudios.cca.api.v3.component.tick.ServerTickingComponent;
 import it.unimi.dsi.fastutil.objects.ObjectOpenHashSet;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.nbt.NbtCompound;
@@ -16,7 +17,7 @@ import net.minecraft.util.Identifier;
 
 import java.util.Collection;
 
-public class PlayerAugmentedComponent implements AugmentedComponent, AutoSyncedComponent {
+public class PlayerAugmentedComponent implements AugmentedComponent, AutoSyncedComponent, ServerTickingComponent {
 	ObjectOpenHashSet<Augmentation> augmentations = new ObjectOpenHashSet<>();
 	PlayerEntity holder;
 
@@ -81,5 +82,10 @@ public class PlayerAugmentedComponent implements AugmentedComponent, AutoSyncedC
 			NbtString.of(AFAugmentations.AUGMENTATIONS.getId(aug).toString())
 		));
 		tag.put("Augmentations", list);
+	}
+
+	@Override
+	public void serverTick() {
+		augmentations.forEach(aug -> aug.tick(holder));
 	}
 }
