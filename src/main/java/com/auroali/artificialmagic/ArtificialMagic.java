@@ -50,8 +50,8 @@ public class ArtificialMagic implements ModInitializer {
 					if (!ctx.getSource().m_bjpnvosg()) return -1;
 					ManaComponent.KEY.get(ctx.getSource().getPlayer()).fillMana(1, DrainType.PERCENT);
 					ManaComponent.KEY.get(ctx.getSource().getPlayer()).setCanUse(false);
-					AugmentedComponent.KEY.get(ctx.getSource()).augmentations().clear();
-					AugmentedComponent.KEY.sync(ctx.getSource());
+					AugmentedComponent.KEY.get(ctx.getSource().getPlayer()).augmentations().clear();
+					AugmentedComponent.KEY.sync(ctx.getSource().getPlayer());
 					return 0;
 				}))
 			)
