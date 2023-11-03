@@ -59,8 +59,8 @@ public class ManaBottle extends Item {
 				return new ItemStack(Items.GLASS_BOTTLE);
 			}
 
-			if (playerEntity != null) {
-				playerEntity.getInventory().insertStack(new ItemStack(Items.GLASS_BOTTLE));
+			if (playerEntity != null && !playerEntity.getInventory().insertStack(new ItemStack(Items.GLASS_BOTTLE))) {
+				playerEntity.dropItem(new ItemStack(Items.GLASS_BOTTLE), false, true);
 			}
 		}
 

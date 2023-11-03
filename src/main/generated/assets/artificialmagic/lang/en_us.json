@@ -1,6 +1,8 @@
 {
+  "block.artificialmagic.mana": "Mana",
   "item.artificialmagic.artificial_heart": "Artificial Heart",
   "item.artificialmagic.mana_bottle": "Mana Bottle",
+  "item.artificialmagic.mana_bucket": "Mana Bucket",
   "item.artificialmagic.mana_crystal": "Mana Crystal",
   "item.artificialmagic.wand": "Resonator"
 }

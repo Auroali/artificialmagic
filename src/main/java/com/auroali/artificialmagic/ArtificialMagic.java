@@ -3,9 +3,7 @@ package com.auroali.artificialmagic;
 import com.auroali.artificialmagic.common.components.entity.AugmentedComponent;
 import com.auroali.artificialmagic.common.components.entity.ManaComponent;
 import com.auroali.artificialmagic.common.mana.DrainType;
-import com.auroali.artificialmagic.common.registry.AFAugmentations;
-import com.auroali.artificialmagic.common.registry.AFItems;
-import com.auroali.artificialmagic.common.registry.AFSounds;
+import com.auroali.artificialmagic.common.registry.*;
 import net.minecraft.server.command.CommandManager;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
@@ -28,6 +26,8 @@ public class ArtificialMagic implements ModInitializer {
 		AFItems.register();
 		AFSounds.register();
 		AFAugmentations.register();
+		AFFluids.register();
+		AFBlocks.register();
 
 		ServerWorldTickEvents.START.register((server, world) ->
 			world.getPlayers().forEach(player -> {
